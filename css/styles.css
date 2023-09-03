@@ -53,6 +53,19 @@ input {
   padding-right: 15px;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .section-heading {
   text-align: center;
   font-weight: 700;
@@ -212,6 +225,7 @@ input {
   margin-left: auto;
   margin-right: auto;
   padding: 16px 32px;
+  min-width: 169px;
   border: none;
   border-radius: 4px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
@@ -227,18 +241,7 @@ input {
   padding-top: 120px;
   padding-bottom: 120px;
 }
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
+
 .features-list {
   display: flex;
   gap: 24px;
@@ -452,7 +455,7 @@ input {
   background-color: transparent;
   font-size: 12px;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.5;
   letter-spacing: 0.04em;
   border-radius: 4px;
   border: 1px solid var(--white);
@@ -476,6 +479,7 @@ input {
   background-color: var(--logo-iris-color);
   min-width: 165px;
   height: 40px;
+  padding: 8px 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -493,7 +497,7 @@ input {
 
 /* MODAL WINDOW */
 
-.modal-window-overlay {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -509,6 +513,7 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  scale: 1;
   width: 408px;
   min-height: 584px;
   background-color: #fcfcfc;
@@ -586,7 +591,7 @@ input {
   transform: translateY(-50%);
   left: 16px;
   fill: var(--navyblue-dark-color);
-  transition: fill cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-input:focus-within + .input-icon {
   fill: var(--logo-iris-color);
@@ -596,6 +601,10 @@ input {
   margin-bottom: 16px;
 }
 .form-comment {
+  color: rgba(46, 47, 66, 0.4);
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
   padding: 8px 16px;
   width: 100%;
   height: 120px;
@@ -606,12 +615,6 @@ input {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   outline: transparent;
 }
-.form-comment::placeholder {
-  color: rgba(46, 47, 66, 0.4);
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-}
 
 .form-comment:focus-within {
   border-color: var(--logo-iris-color);
@@ -620,26 +623,24 @@ input {
 .checkbox-wrapper {
   margin-bottom: 24px;
 }
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
 
-.checkbox-box {
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  color: #8e8f99;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+}
+.checkbox-container {
+  margin-right: 8px;
   width: 16px;
   height: 16px;
   display: inline-flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   fill: transparent;
+  cursor: pointer;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -647,7 +648,7 @@ input {
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input[type='checkbox']:checked .checkbox-box {
+input:checked + .checkbox-label .checkbox-container {
   background-color: var(--active-color);
   border: none;
   fill: #f4f4fd;
