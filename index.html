@@ -578,7 +578,12 @@
             </label>
             <button class="subscribe-btn" type="submit">
               Subscribe
-              <svg class="telegram-icon" width="24" height="24">
+              <svg
+                class="telegram-icon"
+                width="24"
+                height="24"
+                aria-label="telegram icon"
+              >
                 <use href="./images/icons.svg#icon-telegram"></use>
               </svg>
             </button>
@@ -589,7 +594,12 @@
     <div class="backdrop is-hidden">
       <div class="modal-window-wrapper">
         <button class="close-window-btn" type="button">
-          <svg class="close-window-icon" width="8" height="8">
+          <svg
+            class="close-window-icon"
+            width="8"
+            height="8"
+            aria-label="cross icon"
+          >
             <use href="./images/icons.svg#icon-close"></use>
           </svg>
         </button>
@@ -598,33 +608,50 @@
         </p>
         <form>
           <div class="form-field">
-            <label class="form-label" for="user-name">Name</label>
+            <label class="form-label" for="user-name"
+              >Name <sup class="required-field-color">*</sup></label
+            >
             <div class="input-wrapper">
               <input
                 class="form-input"
                 type="text"
                 name="user-name"
                 id="user-name"
+                pattern="[A-Za-zА-Яа-яіІїЇєЄґҐ'-]+"
+                title="Roman"
                 required
                 autofocus
               />
-              <svg class="input-icon" width="18" height="24">
+              <svg
+                class="input-icon"
+                width="18"
+                height="24"
+                aria-label="person icon"
+              >
                 <use href="./images/icons.svg#icon-person"></use>
               </svg>
             </div>
           </div>
 
           <div class="form-field">
-            <label class="form-label" for="user-phone">Phone</label>
+            <label class="form-label" for="user-phone"
+              >Phone <sup class="required-field-color">*</sup></label
+            >
             <div class="input-wrapper">
               <input
                 class="form-input"
                 type="tel"
                 name="user-phone"
                 id="user-phone"
+                pattern="[0-9+]+"
                 required
               />
-              <svg class="input-icon" width="18" height="24">
+              <svg
+                class="input-icon"
+                width="18"
+                height="24"
+                aria-label="phone-icon"
+              >
                 <use href="./images/icons.svg#icon-phone"></use>
               </svg>
             </div>
@@ -639,7 +666,12 @@
                 name="user-email"
                 id="user-email"
               />
-              <svg class="input-icon" width="18" height="24">
+              <svg
+                class="input-icon"
+                width="18"
+                height="24"
+                aria-label="envelope icon"
+              >
                 <use href="./images/icons.svg#icon-email"></use>
               </svg>
             </div>
@@ -664,7 +696,12 @@
             />
             <label class="checkbox-label" for="user-privacy">
               <span class="checkbox-container">
-                <svg class="checkbox-icon" width="10" height="8">
+                <svg
+                  class="checkbox-icon"
+                  width="10"
+                  height="8"
+                  aria-label="checkbox icon"
+                >
                   <use href="./images/icons.svg#icon-checkbox"></use>
                 </svg>
               </span>
